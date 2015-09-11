@@ -29,17 +29,12 @@ LDFLAGS = -lusb
 
 CFLAGS = -c -O2 -Wall
 
-BIN = USBMissileLauncherUtils
+BIN = usb-missile-launcher
 OBJS = USBMissileLauncherUtils.o USBMissileLauncher.o InputEvent.o
 
 all:	${BIN}
 
-install: ${BIN}
-	@echo "INSTALL ${BIN}"
-	@cp ${BIN} /usr/local/bin
-	@chmod -R 777 /usr/local/bin/${BIN}
-
-USBMissileLauncherUtils:	${OBJS}
+${BIN}:	${OBJS}
 	@echo "CC $@"
 	@${CC} -o $@ ${OBJS} ${LDFLAGS}
 
@@ -57,4 +52,4 @@ USBMissileLauncherUtils.o:
 
 
 clean:		
-	@rm -f core USBMissileLauncherUtils ${OBJS}
+	@rm -f core ${BIN} ${OBJS}
