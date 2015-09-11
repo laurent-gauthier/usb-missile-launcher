@@ -27,7 +27,7 @@
 
 LDFLAGS = -lusb
 
-CFLAGS = -c -O2 -Wall $(shell pkg-config --cflags libusb)
+CFLAGS = -c -O2 -Wall
 
 BIN = usb-missile-launcher
 OBJS = USBMissileLauncherUtils.o USBMissileLauncher.o InputEvent.o
