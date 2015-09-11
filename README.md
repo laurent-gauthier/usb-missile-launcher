@@ -1,67 +1,79 @@
 # USB Missile Launcher
 
-Originally by Luke Cole <http://lukecole.name>
+This code was originally written by Luke Cole (see http://lukecole.name).
 
-http://sourceforge.net/projects/usbmissile
-OR
-http://lukecole.name/usb_missile_launcher
+I have just imported it in GIT from the original Sourceforge project and
+made some cosmetic changes to it:
+
+* http://sourceforge.net/projects/usbmissile
+
+The original GPLv2 license is used, as it should.
 
 ## Description
 
-USBMissileLauncher is user space Linux driver to control the the USB
-Missile Launcher and USB Circus Cannon via the command line or
-keyboard (simple C implemenation).
+**usb-missile-launcher** is user space Linux driver to control the the USB
+Missile Launcher and USB Circus Cannon from the command line or via
+keyboard (simple C implementation).
 
-Keyboard Control Keys
----------------------
+Command Line Control Options:
 
- * Up Arrow - Move Up
- * Down Arrow - Move Down
- * Left Arrow - Move Left
- * Right Arrow - Move Right
- * F Key - Fire Missile
- * S Key - Stop Moving 
+* -F: Fire one missile (that's what it's all about!).
+* -R: Turn the turret towards the right.
+* -L: Turn the turret towards the left.
+* -U: Turn the turret up.
+* -D: Turn the turret down.
+
+In addition to these commands it possible to specify a delay after which the
+execution of the command is to be stopped:
+
+* -S **delay**: The delay value has to be expressed in milliseconds.
+
+Keyboard Control Keys:
+
+* Up Arrow - Move Up
+* Down Arrow - Move Down
+* Left Arrow - Move Left
+* Right Arrow - Move Right
+* F Key - Fire Missile
+* S Key - Stop Moving 
 
 ## Installation
-============
 
-1. Download the USBMissileLauncher-1.0 code tarball.
+1. Clone this GIT repository from Github:
 
-2. Uncompress the tarball and untar the code
+      ```
+      git clone https://github.com/laurent-gauthier/usb-missile-launcher
+      ```
 
-      tar xvfz USBMissileLauncher-1.0.tgz
+3. Go to source directory:
 
-3. Go to source directory.
+      ```
+      cd usb-missile-lancher
+      ```
 
-      cd USBMissileLauncher-1.0
+4. Compile the code:
 
-4. Remove the usb core modules (requires root/sudo access).
-   NOTE: not required for USBMissileLauncher version > 1.0
-
-      sudo rmmod {e,o,u}hci-hcd hid
-
-5. Compile the code
-
+      ```
       make
+      ```
 
-6. Install the code (requires root/sudo access)
+5. Control the USB Missile Launcher from the command line:
 
-      sudo make install
-
-7. Control the USB Missile Launcher from the command line:
-
-      ./USBMissileLauncherUtils -L
-      ./USBMissileLauncherUtils -R
-      ./USBMissileLauncherUtils -U -S 100
-      ./USBMissileLauncherUtils -R -U -F
+      ```
+      ./usb-missile-launcher -L
+      ./usb-missile-launcher -R
+      ./usb-missile-launcher -U -S 100
+      ./usb-missile-launcher -R -U -F
+      ```
 
       This will move the USB Missile Launcher left, right, then up
-      however stops after 100ms and then finally moves simutaniously
+      however stops after 100ms and then finally moves simultaneously
       right, up and fires a missile.
    
-8. Control the USB Missile Launcher from the keyboard located at
-   /dev/input/event0:
+Alternatively is also possible to control the USB Missile Launcher
+from the keyboard located at /dev/input/event0 as follows:
 
-      sudo ./USBMissileLauncherUtils -c /dev/input/event0
-C Linux program to control a USB missile launcher
+      ```
+      sudo ./usb-missile-launcher -c /dev/input/event0
+      ```
 
