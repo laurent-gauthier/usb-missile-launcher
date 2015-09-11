@@ -73,7 +73,7 @@ Keyboard Control Keys:
 Alternatively is also possible to control the USB Missile Launcher
 from the keyboard located at /dev/input/event0 as follows:
 
-      ```
-      sudo ./usb-missile-launcher -c /dev/input/event0
-      ```
+```
+sudo ./usb-missile-launcher -c /dev/input/event0
+```
 
