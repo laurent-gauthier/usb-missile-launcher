@@ -39,6 +39,9 @@ Keyboard Control Keys:
 
 ## Installation
 
+On Ubuntu you first need to install the libusb-dev package before you
+can compile this program.
+
 1. Clone this GIT repository from Github:
 
       ```
@@ -57,7 +60,7 @@ Keyboard Control Keys:
       make
       ```
 
-5. Control the USB Missile Launcher from the command line:
+5. Control the USB Missile Launcher from the command line, as root:
 
       ```
       ./usb-missile-launcher -L
